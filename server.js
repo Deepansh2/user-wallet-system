@@ -8,6 +8,7 @@ const dbConfig = require("./configs/db.config");
 const bcrypt = require("bcryptjs")
 
 const User = require("./models/user.model")
+const Wallet = require("./models/wallet.model")
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}))
@@ -27,6 +28,7 @@ async function init(){
 
     try{
     await User.collection.drop()
+
 
     // const user = await User.findOne({userId : "admin"})
     const adminUser = await User.create({
@@ -48,6 +50,7 @@ async function init(){
 
 require("./routes/user.route")(app);
 require("./routes/auth.route")(app);
+require("./routes/wallet.route")(app)
 
 
 app.listen(serverConfig.PORT,()=>{

@@ -13,13 +13,14 @@ const verifyToken = (req,res,next) =>{
             message : "token is not provided ! Access probated"
         })
     }
-    jwt.verify(token,authConfig.secret, (err,decoded) =>{
+    jwt.verify(token,authConfig.secret, async(err,decoded) =>{
         if(err){
             return res.status(403).send({
                 message : "Failed ! token is not valid"
             })
         }
-        req.userId = decoded.id
+        const users = await User.findOne({userId : decoded.id})
+        req.user = users
         next();
     })
 
