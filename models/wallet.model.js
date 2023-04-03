@@ -9,7 +9,8 @@ const walletSchema = new mongoose.Schema({
     },
     accountNumber : {
         type : Number,
-        required : true
+        required : true,
+        unique : true
     },
     walletBalance : {
         type : Number,

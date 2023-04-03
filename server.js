@@ -38,6 +38,13 @@ async function init(){
         email : "deepanshusing54@gmail.com",
         userType : "ADMIN"
     })
+    const user = await User.create({
+        name : "deepanshu",
+        userId : "user",
+        password : bcrypt.hashSync("deep1",8),
+        email : "deepanshusing54@gmail.com",
+        userType : "USER"
+    })
     console.log(adminUser)
 }catch(err){
     console.log("error while creating admin",err);
