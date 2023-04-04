@@ -34,6 +34,10 @@ const userSchema = new mongoose.Schema({
         default : constants.userStatus.approved,
         enum : [constants.userStatus.pending,constants.userStatus.approved,constants.userStatus.rejected]
     },
+    transactions:{
+        type : [mongoose.SchemaTypes.ObjectId],
+        ref : "passbook"
+    },
     createdAt : {
         type : Date,
         immutable : true,

@@ -7,7 +7,8 @@ exports.userResponse = (users) =>{
             userId : user.userId,
             email : user.email,
             userType : user.userType,
-            userStatus : user.userStatus
+            userStatus : user.userStatus,
+            transactions : user.transactions
         })
     })
     return userResult;

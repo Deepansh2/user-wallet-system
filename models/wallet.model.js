@@ -21,6 +21,19 @@ const walletSchema = new mongoose.Schema({
         required : true,
         minLength:6,
         maxLength : 6
+    },
+    createdAt : {
+        type : Date,
+        immutable:true,
+        default : ()=>{
+            return Date.now()
+        }
+    },
+    updatedAt : {
+        type : Date,
+        default : ()=>{
+            return Date.now()
+        }
     }
 },{versionKey:false})
 

@@ -36,14 +36,16 @@ async function init(){
         userId : "admin",
         password : bcrypt.hashSync("deep1",8),
         email : "deepanshusing54@gmail.com",
-        userType : "ADMIN"
+        userType : "ADMIN",
+        transactions:[]
     })
     const user = await User.create({
         name : "deepanshu",
         userId : "user",
         password : bcrypt.hashSync("deep1",8),
         email : "deepanshusing54@gmail.com",
-        userType : "USER"
+        userType : "USER",
+        transactions:[]
     })
     console.log(adminUser)
 }catch(err){
@@ -58,6 +60,7 @@ async function init(){
 require("./routes/user.route")(app);
 require("./routes/auth.route")(app);
 require("./routes/wallet.route")(app)
+require("./routes/passbook.route")(app)
 
 
 app.listen(serverConfig.PORT,()=>{
